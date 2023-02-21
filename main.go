@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+    "github.com/suedoh/eleavtor-design/elevator"
 )
 
 type State int
@@ -36,7 +37,7 @@ type Request interface {
 }
 
 func main() {
-	e := helper.ExternalRequest{UP, 2}
+	e := elevator.ExternalRequest{UP, 2}
 	fmt.Println(e.GetDirectionToGo())
 	e.SetDirectionToGo(DOWN)
 	fmt.Println(e.GetDirectionToGo())
