@@ -15,8 +15,8 @@ type ExternalRequest struct {
 	sourceFloor   int
 }
 
-func NewExternalRequest(dtg Direction, sf int) *ExternalRequest  {
-    return &ExternalRequest{
+func NewExternalRequest(dtg Direction, sf int) ExternalRequest  {
+    return ExternalRequest{
         directionToGo: dtg,
         sourceFloor: sf,
     }
