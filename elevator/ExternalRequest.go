@@ -11,22 +11,29 @@ type ExternalRequester interface {
 }
 
 type ExternalRequest struct {
-	DirectionToGo Direction
-	SourceFloor   int
+	directionToGo Direction
+	sourceFloor   int
+}
+
+func NewExternalRequest(dtg Direction, sf int) *ExternalRequest  {
+    return &ExternalRequest{
+        directionToGo: dtg,
+        sourceFloor: sf,
+    }
 }
 
 func (e *ExternalRequest) SetDirectionToGo(d Direction) {
-	e.DirectionToGo = d
+	e.directionToGo = d
 }
 
 func (e ExternalRequest) GetDirectionToGo() Direction {
-	return e.DirectionToGo
+	return e.directionToGo
 }
 
 func (e ExternalRequest) GetSourceFloor() int {
-	return e.SourceFloor
+	return e.sourceFloor
 }
 
 func (e *ExternalRequest) SetSourceFloor(s int) {
-	e.SourceFloor = s
+	e.sourceFloor = s
 }

@@ -1,18 +1,24 @@
 package elevator
 
 type InternalRequest struct {
-	DestinationFloor int
+	destinationFloor int
+}
+
+func NewInternalRequest(df int) *InternalRequest  {
+    return &InternalRequest{
+        destinationFloor: df,
+    }
 }
 
 type InternalRequester interface {
-	GetDetinationFloor()
-	SetDetinationFloor()
+	GetDestinationFloor()
+	SetDestinationFloor()
 }
 
-func (i InternalRequest) GetDetinationFloor() int {
-	return i.DestinationFloor
+func (i InternalRequest) GetDestinationFloor() int {
+	return i.destinationFloor
 }
 
-func (i *InternalRequest) SetDetinationFloor(d int) {
-	i.DestinationFloor = d
+func (i *InternalRequest) SetDestinationFloor(d int) {
+	i.destinationFloor = d
 }
