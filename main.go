@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-    "github.com/suedoh/eleavtor-design/elevator"
+    "github.com/suedoh/elevator-design/elevator"
 )
 
 type State int
@@ -15,7 +15,7 @@ const (
 )
 
 const (
-	DOWN Direction = iota
+	DOWN = iota
 	UP
 )
 
@@ -37,7 +37,7 @@ type Request interface {
 }
 
 func main() {
-	e := elevator.ExternalRequest{UP, 2}
+	e := elevator.ExternalRequest{DOWN, 2}
 	fmt.Println(e.GetDirectionToGo())
 	e.SetDirectionToGo(DOWN)
 	fmt.Println(e.GetDirectionToGo())
