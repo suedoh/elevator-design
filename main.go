@@ -18,6 +18,12 @@ const (
 )
 
 func main() {
+    er := elevator.NewExternalRequest(UP, 0)
+    ir := elevator.NewInternalRequest(5)
+    request := elevator.NewRequest(ir, er)
+
+	fmt.Println(request.GetExternalRequest())
+	fmt.Println(request.GetInternalRequest())
     elevator := elevator.Elevator{0, UP, IDLE}
 	fmt.Println(elevator.String())
 }

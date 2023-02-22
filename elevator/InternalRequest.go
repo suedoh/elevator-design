@@ -4,8 +4,8 @@ type InternalRequest struct {
 	destinationFloor int
 }
 
-func NewInternalRequest(df int) *InternalRequest  {
-    return &InternalRequest{
+func NewInternalRequest(df int) InternalRequest  {
+    return InternalRequest{
         destinationFloor: df,
     }
 }

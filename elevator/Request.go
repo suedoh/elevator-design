@@ -9,30 +9,30 @@ type Requester interface {
 }
 
 type Request struct {
-    internalRequest *InternalRequest
-    externalRequest *ExternalRequest
+    internalRequest InternalRequest
+    externalRequest ExternalRequest
 }
 
-func NewRequest(ir *InternalRequest, er *ExternalRequest) *Request  {
-    return &Request{
+func NewRequest(ir InternalRequest, er ExternalRequest) Request {
+    return Request{
         internalRequest: ir,
         externalRequest: er,
     } 
 }
 
-func (r *Request) GetInternalRequest() *InternalRequest  {
+func (r *Request) GetInternalRequest() InternalRequest  {
     return r.internalRequest
 }
 
-func (r *Request) SetInternalRequest(ir *InternalRequest)  {
+func (r *Request) SetInternalRequest(ir InternalRequest)  {
     r.internalRequest = ir
 }
 
-func (r *Request) GetExternalRequest() *ExternalRequest  {
+func (r *Request) GetExternalRequest() ExternalRequest  {
     return r.externalRequest
 }
 
-func (r *Request) SetExternalRequest(er *ExternalRequest)  {
+func (r *Request) SetExternalRequest(er ExternalRequest)  {
     r.externalRequest = er
 }
 
