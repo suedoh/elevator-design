@@ -1,45 +1,24 @@
 package main
 
 import (
-	"fmt"
+    "fmt"
+
     "github.com/suedoh/elevator-design/elevator"
 )
 
-type State int
-type Direction int
-
 const (
-	MOVING State = iota
-	IDLE
-	STOPPED
+    MOVING elevator.State = iota
+    IDLE
+    STOPPED
 )
 
 const (
-	DOWN = iota
-	UP
+    DOWN elevator.Direction = iota
+    UP
 )
-
-type Elevator struct {
-	CurrentFloor int
-	Direction    Direction
-	State        State
-}
-
-type Request interface {
-	InternalRequest()
-	ExternalRequest()
-	Request()
-	GetInternalRequest()
-	SetInternalRequest()
-	GetExternalRequest()
-	SetExternalRequest()
-	CompareTo()
-}
 
 func main() {
-	e := elevator.ExternalRequest{DOWN, 2}
-	fmt.Println(e.GetDirectionToGo())
-	e.SetDirectionToGo(DOWN)
-	fmt.Println(e.GetDirectionToGo())
-	// fmt.Println(UP, DOWN)
+    elevator := elevator.Elevator{0, UP, IDLE}
+	fmt.Println(elevator.String())
 }
+
