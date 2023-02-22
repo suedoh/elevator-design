@@ -2,27 +2,25 @@ package main
 
 import (
 	"fmt"
-    "github.com/suedoh/elevator-design/elevator"
+
+	"github.com/suedoh/elevator-design/elevator"
 )
 
-type State int
-type Direction int
-
 const (
-	MOVING State = iota
+	MOVING elevator.State = iota
 	IDLE
 	STOPPED
 )
 
 const (
-	DOWN = iota
+	DOWN elevator.Direction = iota
 	UP
 )
 
 type Elevator struct {
 	CurrentFloor int
-	Direction    Direction
-	State        State
+	Direction    elevator.Direction
+	State        elevator.State
 }
 
 type Request interface {
@@ -37,7 +35,7 @@ type Request interface {
 }
 
 func main() {
-	e := elevator.ExternalRequest{DOWN, 2}
+	e := elevator.ExternalRequest{DirectionToGo: UP, SourceFloor: 2}
 	fmt.Println(e.GetDirectionToGo())
 	e.SetDirectionToGo(DOWN)
 	fmt.Println(e.GetDirectionToGo())
